@@ -87,7 +87,7 @@ cdw() { cd /mnt/array/projects/jsflow-webkit; if [ "$JSFLOW" == "" ]; then sourc
 tws() { cd $HOME/tap/bin/tws/IBJts/; ./run.sh; }
 
 #Phonebook
-export PHONE="$HOME/crypt/phonebook"
+export PHONE="$HOME/tap/mnt/crypt/phonebook"
 #phone() { smount crypt; grep -i "$@" $PHONE; smount -u crypt; }
 viphone() { smount crypt && vi $PHONE && smount -u crypt; }
 
