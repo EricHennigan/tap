@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+smount() {
+    server="cogitolingua.net"
+    #server="169.234.132.55"
+
+    mounting="true"
+    if [ "$1" == "-u" ]; then
+        shift 1
+        mounting="false"
+    fi
+
+    case "$1" in
+        array)
+            remote="/mnt/array"
+            #local="$HOME/tap/mnt/array"
+            local="/mnt/array"
+            ;;
+        squid)
+            remote="/home/erich"
+            local="$HOME/tap/mnt/squid"
+            ;;
+        projects)
+            #remote="/home/erich/projects"
+            #local="$HOME/projects"
+            remote="/mnt/array/projects"
+            local="$HOME/tap/mnt/projects"
+            ;;
+        html)
+            server="ehenniga@openlab.ics.uci.edu"
+            remote="/home/ehenniga/public_html"
+            local="$HOME/tap/mnt/public_html"
+            ;;
+        xen)
+            server="xen.ics.uci.edu"
+            remote="/home/erich"
+            local="$HOME/tap/mnt/xen"
+            ;;
+        xenu)
+            server="xenu.ics.uci.edu"
+            remote="/home/erich"
+            local="$HOME/tap/mnt/xenu"
+            ;;
+        crypt)
+            if [ "$mounting" == "true" ]; then
+                [[ -f ~/tap/mnt/crypt ]] && echo "Error: ~/tap/mnt/crypt is a file" && return 0
+                [[ -d ~/tap/mnt/crypt && "$(ls -A ~/tap/mnt/crypt)" ]] && echo "Error: ~/tap/mnt/crypt is not empty" && return 0
+                encfs ~/tap/etc/crypt ~/tap/mnt/crypt
+            else
+                fusermount -uz ~/tap/mnt/crypt
+            fi
+            return $?
+            ;;
+        *)
+            echo $"choices are {array|crypt|squid|projects|html|xen|xenu}"
+            return 1
+    esac
+
+    if [ "$mounting" == "true" ]; then
+        sshfs $server:$remote $local
+    else
+        fusermount -uz $local
+    fi
+    return $?
+}
+
+smount $@
