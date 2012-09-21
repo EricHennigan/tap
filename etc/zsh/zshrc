@@ -44,7 +44,7 @@ SAVEHIST=10000
 setopt inc_append_history
 setopt share_history
 
-DOT=$HOME/etc/dot
+DOT=$HOME/tap/etc/
 source $DOT/zsh/alias.zsh
 source $DOT/zsh/$(hostname).zsh
 
