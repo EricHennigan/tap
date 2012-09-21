@@ -41,3 +41,11 @@ function dev-golang {
     export GOBIN="$HOME/software/golang/bin"
     export PATH="$GOBIN:$PATH"
 }
+
+
+# =========================
+# Ruby language Development
+source /home/erich/.rvm/scripts/rvm
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+

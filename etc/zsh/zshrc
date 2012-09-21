@@ -44,11 +44,7 @@ SAVEHIST=10000
 setopt inc_append_history
 setopt share_history
 
-# RVM
-source /home/erich/.rvm/scripts/rvm
-
 DOT=$HOME/etc/dot
 source $DOT/zsh/alias.zsh
 source $DOT/zsh/$(hostname).zsh
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
