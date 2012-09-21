@@ -1,0 +1,5 @@
+[user]
+	name = Eric Hennigan
+	email = eric.hennigan@gmail.com
+[alias]
+	vimdiff = difftool -y -t vimdiff -R

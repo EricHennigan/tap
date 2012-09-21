@@ -6,6 +6,7 @@ cd $HOME
 ln -sf tap/etc/zsh/zshrc .zshrc
 ln -sf tap/etc/vim .vim
 ln -sf tap/etc/vim/vimrc .vimrc
+ln -sf tap/etc/gitconfig .gitconfig
 
 # setup zsh for this computer
 cd $HOME/tap/etc/zsh
