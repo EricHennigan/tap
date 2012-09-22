@@ -1,0 +1,7 @@
+#!/bin/sh
+
+while true
+do
+sleep 3                 # so the server is not bombarbed with requests
+mplayer $1 -ao arts     # Replace with proper ID. OSS Users: Replace with proper device.
+done

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+source $HOME/.Xdbus
+dbus-send --print-reply --address=$DBUS_SESSION_BUS_ADDRESS --dest=org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.saveCurrentSession 2>&1 >> $HOME/tap/tmp/session.out
