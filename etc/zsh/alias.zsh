@@ -84,7 +84,7 @@ cdj() { cd /mnt/array/projects/jsflow; if [ "$JSFLOW" == "" ]; then source ./env
 cdw() { cd /mnt/array/projects/jsflow-webkit; if [ "$JSFLOW" == "" ]; then source ./env; fi; }
 
 #trading
-tws() { cd $HOME/tap/bin/tws/IBJts/; ./run.sh; }
+tws() { cd $HOME/software/tws/IBJts/; ./run.sh; }
 
 #Phonebook
 export PHONE="$HOME/tap/mnt/crypt/phonebook"
