@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/mnt/array/media/Education/UCI/teaching/2012--2013-Q1/CompSci 142A - Compilers and Interpreters/website/labs/lab6/Lab6_CodeGen'
-let g:netrw_dirhist_2='/mnt/array/media/Education/UCI/teaching/2012--2013-Q1/CompSci 142A - Compilers and Interpreters/website/labs/lab5/Lab5_Types/src/crux'
-let g:netrw_dirhist_3='/mnt/array/media/Education/UCI/teaching/2012--2013-Q1/CompSci 142A - Compilers and Interpreters/website/labs/lab5/Lab5_Types.implementation/src'
-let g:netrw_dirhist_4='/mnt/array/media/Education/UCI/teaching/2012--2013-Q1/CompSci 142A - Compilers and Interpreters/website/labs/lab5/Lab5_Types.implementation'
