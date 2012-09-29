@@ -57,6 +57,7 @@ smount() {
     esac
 
     if [ "$mounting" == "true" ]; then
+        mkdir -p $local
         sshfs $server:$remote $local
     else
         fusermount -uz $local
