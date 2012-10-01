@@ -10,7 +10,7 @@ tohome() {
     xrandr --output LVDS1 --auto
     sleep 1
     xrandr --output VGA1 --off 
-    xmodmap ~/tap/etc/keymaps/dvorak_laptop.kbd
+    #xmodmap ~/tap/etc/keymaps/dvorak_laptop.kbd
     smount -u array
 }
 
@@ -20,7 +20,7 @@ towork() {
     xrandr --output LVDS1 --off
     sleep 1
     xrandr --output HDMI1 --auto --left-of VGA1
-    xmodmap ~/tap/etc/keymaps/dvorak_apple.kbd
+    #xmodmap ~/tap/etc/keymaps/dvorak_apple.kbd
 }
 
 toclass() {
