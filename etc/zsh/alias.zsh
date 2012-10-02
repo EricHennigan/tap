@@ -75,11 +75,8 @@ alias sshlab="ssh ehenniga@openlab.ics.uci.edu"
 alias kwireless="sudo iwconfig wlan0 essid \"K wireless\""
 
 #teaching
-cd295() { cd /mnt/array/media/Education/UCI/2011--2012-Q1/CS295*; }
-cd222() { cd /mnt/array/media/Education/UCI/2011--2012-Q1/CS222*; }
-cd120() { cd /mnt/array/media/Education/CSUF/2011--2012-S2/CPSC120*; }
-cd390() { cd /mnt/array/media/Education/UCI/2011--2012-Q3/University*; }
-cdschool() { cd /mnt/array/media/Education/UCI/2011--2012-Q1/; }
+cd390() { cd /mnt/array/media/Education/UCI/2012--2013-Q1/University*; }
+cd142() { cd /mnt/array/media/Education/UCI/teaching/2012--2013-Q1/Comp*; }
 cdj() { cd /mnt/array/projects/jsflow; if [ "$JSFLOW" == "" ]; then source ./env; fi; }
 cdw() { cd /mnt/array/projects/jsflow-webkit; if [ "$JSFLOW" == "" ]; then source ./env; fi; }
 
