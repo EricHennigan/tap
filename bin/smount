@@ -31,10 +31,10 @@ smount() {
             remote="/home/ehenniga/public_html"
             local="$HOME/tap/mnt/public_html"
             ;;
-        xen)
-            server="xen.ics.uci.edu"
+        wopr)
+            server="wopr.ics.uci.edu"
             remote="/home/erich"
-            local="$HOME/tap/mnt/xen"
+            local="$HOME/tap/mnt/wopr"
             ;;
         xenu)
             server="xenu.ics.uci.edu"
