@@ -1,11 +1,12 @@
 scriptencoding utf-8
 " ^^ Please leave the above line at the start of the file.
-
 set nocompatible          " Use Vim defaults (much better!)
-set grepprg=grep\ -nH\ $* " make grep always report filename
+
+call pathogen#infect()
+syntax on
 filetype plugin indent on " enable indentation
 
-set nocompatible        " Use Vim defaults (much better!)
+set grepprg=grep\ -nH\ $* " make grep always report filename
 set bs=2                " Allow backspacing over everything in insert mode
 set ai                  " Always set auto-indenting on
 set history=1000        " keep 1000 lines of command history
