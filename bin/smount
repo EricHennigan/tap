@@ -58,7 +58,7 @@ smount() {
 
     if [ "$mounting" == "true" ]; then
         mkdir -p $local
-        sshfs $server:$remote $local
+        sshfs $server:$remote $local -o idmap=user 
     else
         fusermount -uz $local
     fi
