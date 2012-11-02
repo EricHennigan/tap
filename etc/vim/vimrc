@@ -55,3 +55,10 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1 
+
+" Annoying Whitespace
+:highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+:match ExtraWhitespace /\s\+$/           "trailing whitespace
+:match ExtraWhitespace /\s\+$\| \+\ze\t/ "trailing whitespace and spaces before a tab
+:match ExtraWhitespace /[^\t]\zs\t\+/    "tabs that are not at the start of a line
+":match ExtraWhitespace /^\t*\zs \+/      "spaces used for indenting (only tabs for indenting).
