@@ -62,3 +62,9 @@ let g:miniBufExplModSelTarget = 1
 :match ExtraWhitespace /\s\+$\| \+\ze\t/ "trailing whitespace and spaces before a tab
 :match ExtraWhitespace /[^\t]\zs\t\+/    "tabs that are not at the start of a line
 ":match ExtraWhitespace /^\t*\zs \+/      "spaces used for indenting (only tabs for indenting).
+
+" highlight columns past 80 chars
+set colorcolumn=81
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
+
