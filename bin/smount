@@ -32,7 +32,7 @@ smount() {
             local="$HOME/tap/mnt/public_html"
             ;;
         wopr)
-            server="wopr.ics.uci.edu"
+            server="ssllab.org"
             remote="/home/erich"
             local="$HOME/tap/mnt/wopr"
             ;;
