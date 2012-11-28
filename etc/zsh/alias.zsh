@@ -126,3 +126,5 @@ export EC2_CERT=$HOME/.ec2/cert-5C3MH7AMF5QV7WIMNDOSBWQICGUUQDOC.pem
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
 alias sshaz="ssh -i $HOME/.ec2/cs142a.pem ubuntu@ec2-50-112-56-221.us-west-2.compute.amazonaws.com"
 
+# LaTeX
+export TEXMFHOME=$HOME/tap/etc/texmf
