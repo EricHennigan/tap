@@ -27,8 +27,10 @@ smount() {
             local="$HOME/tap/mnt/projects"
             ;;
         html)
-            server="ehenniga@openlab.ics.uci.edu"
-            remote="/home/ehenniga/public_html"
+            #server="ehenniga@openlab.ics.uci.edu"
+            #remote="/home/ehenniga/public_html"
+            server="18000w13@eee.uci.edu"
+            remote="/home/classes/18000w13/public_html"
             local="$HOME/tap/mnt/public_html"
             ;;
         wopr)
