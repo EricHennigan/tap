@@ -33,15 +33,20 @@ smount() {
             remote="/home/classes/18000w13/public_html"
             local="$HOME/tap/mnt/public_html"
             ;;
+        openlab)
+            server="ehenniga@openlab.ics.uci.edu"
+            remote="/home/ehenniga"
+            local="$HOME/tap/mnt/openlab"
+            ;;
         wopr)
             server="ssllab.org"
             remote="/home/erich"
             local="$HOME/tap/mnt/wopr"
             ;;
-        xenu)
-            server="xenu.ics.uci.edu"
+        skynet)
+            server="skynet.ics.uci.edu"
             remote="/home/erich"
-            local="$HOME/tap/mnt/xenu"
+            local="$HOME/tap/mnt/skynet"
             ;;
         crypt)
             if [ "$mounting" == "true" ]; then
@@ -54,7 +59,7 @@ smount() {
             return $?
             ;;
         *)
-            echo $"choices are {array|crypt|squid|projects|html|xen|xenu}"
+            echo $"choices are {array|squid|projects|html|openlab|wopr|skynet|crypt}"
             return 1
     esac
 
