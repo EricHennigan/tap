@@ -64,7 +64,7 @@ trash(){ mv "$@" $HOME/tap/trash/; }
 encrypt() { openssl enc -e -aes256 -in "$@"; }
 decrypt() { openssl enc -d -aes256 -in "$@"; }
 genkey() { ssh-keygen -t rsa; }
-givekey() { cat ~/.ssh/id_rsa.pub | ssh "$@" "mkdir -p ~/.ssh; chmod 600 ~/.ssh; cat >> ~/.ssh/authorized_keys; chmod 600 ~/.ssh/authorized_keys"; }
+givekey() { cat ~/.ssh/id_rsa.pub | ssh "$@" "mkdir -p ~/.ssh; chmod 700 ~/.ssh; cat >> ~/.ssh/authorized_keys; chmod 600 ~/.ssh/authorized_keys"; }
 cdart() { cd `ls -tF | grep '/$' | head -n 1`; }
 
 # ssh quick-links
