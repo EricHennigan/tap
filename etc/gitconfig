@@ -3,3 +3,5 @@
 	email = eric.hennigan@gmail.com
 [alias]
 	vimdiff = difftool -y -t vimdiff -R
+[color]
+	ui = true
