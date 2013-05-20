@@ -21,9 +21,10 @@ set nohlsearch
 set background=dark
 
 " customize showing of special characters
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,trail:$
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
+set list
 
 " customize status line
 set laststatus=2
@@ -57,7 +58,7 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1 
 
 " Annoying Whitespace
-:highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+:highlight ExtraWhitespace ctermbg=blue guibg=blue
 :match ExtraWhitespace /\s\+$/           "trailing whitespace
 :match ExtraWhitespace /\s\+$\| \+\ze\t/ "trailing whitespace and spaces before a tab
 :match ExtraWhitespace /[^\t]\zs\t\+/    "tabs that are not at the start of a line
