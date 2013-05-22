@@ -19,7 +19,7 @@ towork() {
     sleep 1
     xrandr --output LVDS1 --off
     sleep 1
-    xrandr --output HDMI1 --auto --left-of VGA1
+    xrandr --output HDMI1 --auto --right-of VGA1
     #xmodmap ~/tap/etc/keymaps/dvorak_apple.kbd
 }
 
