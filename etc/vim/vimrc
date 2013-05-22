@@ -69,3 +69,6 @@ set colorcolumn=81
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "match OverLength /\%81v.\+/
 
+" NerdTree
+map <leader>n :NERDTreeToggle<CR><CR>
+let g:NERDTreeWinPos = "right"
