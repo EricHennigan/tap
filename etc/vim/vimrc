@@ -6,6 +6,11 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on " enable indentation
 
+let mapleader = "\t"
+let g:mapleader = "\t"
+
+map qq :q!<CR>
+
 set grepprg=grep\ -nH\ $* " make grep always report filename
 set bs=2                " Allow backspacing over everything in insert mode
 set ai                  " Always set auto-indenting on
