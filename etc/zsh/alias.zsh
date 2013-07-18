@@ -77,8 +77,8 @@ alias kwireless="sudo iwconfig wlan0 essid \"K wireless\""
 #teaching
 cd390() { cd /mnt/array/media/Education/UCI/2012--2013-Q1/University*; }
 cd142() { cd /mnt/array/media/Education/UCI/teaching/2012--2013-Q1/Comp*; }
-cdj() { cd /mnt/array/projects/jsflow; if [ "$JSFLOW" == "" ]; then source ./env; fi; }
-cdw() { cd /mnt/array/projects/jsflow-webkit; if [ "$JSFLOW" == "" ]; then source ./env; fi; }
+cdj() { cd /mnt/array/projects/jsflow; if [[ "$JSFLOW" == "" ]]; then source ./env; fi; }
+cdw() { cd /mnt/array/projects/jsflow-webkit; if [[ "$JSFLOW" == "" ]]; then source ./env; fi; }
 
 #trading
 tws() { cd $HOME/software/tws/IBJts/; ./run.sh; }
@@ -128,3 +128,6 @@ alias sshaz="ssh -i $HOME/.ec2/cs142a.pem ubuntu@ec2-50-112-56-221.us-west-2.com
 
 # LaTeX
 export TEXMFHOME=$HOME/tap/etc/texmf
+
+# Powerline
+export PATH="$HOME/.local/bin:$PATH"
