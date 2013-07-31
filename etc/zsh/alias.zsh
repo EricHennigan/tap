@@ -44,12 +44,8 @@ function drip () { grep -Rin "$@" *; }
 alias pd="pushd"
 alias pop="popd"
 alias pp="pop"
-alias pwd="dirs"
+#alias pwd="dirs"
 
-alias pd="pushd"
-alias pop="popd"
-alias pp="pop"
-alias pwd="dirs"
 
 alias lh="history | sort -nr | less"
 alias h="history | grep -i"
