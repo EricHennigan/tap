@@ -1,0 +1,23 @@
+
+[DarkOxygen]
+Color Background=50,50,50
+Color Highlighted Bracket=90,0,179
+Color Highlighted Line=46,52,54
+Color Icon Bar=136,136,136
+Color Line Number=50,50,50
+Color MarkType1=0,0,255
+Color MarkType2=255,0,0
+Color MarkType3=227,173,0
+Color MarkType4=255,0,191
+Color MarkType5=187,187,187
+Color MarkType6=0,140,0
+Color MarkType7=255,0,0
+Color Selection=0,72,77
+Color Spelling Mistake Line=255,0,0
+Color Tab Marker=85,85,85
+Color Template Background=187,187,187
+Color Template Editable Placeholder=216,232,194
+Color Template Focused Editable Placeholder=177,210,143
+Color Template Not Editable Placeholder=255,204,204
+Color Word Wrap Marker=85,87,83
+Font=Monospace,10,-1,5,50,0,0,0,0,0

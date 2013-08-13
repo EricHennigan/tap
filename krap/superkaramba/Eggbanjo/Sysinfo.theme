@@ -1,0 +1,32 @@
+################################################
+#                                              #
+#                 System                       #
+#                                              #
+################################################
+
+karamba x=0 y=0 w=240 h=110 LOCKED=false
+image x=0 y=0 path="img/blackgoldw.png"
+defaultfont font="Sans" fontsize=10 color=255,255,255 shadow=0
+
+################################################
+
+<GROUP> X=0 Y=8
+
+text x=65 y=9 sensor=time format="dd MMM / hh:mm" fontsize=11 font="good times" shadow=0 interval=1000
+
+text x=10 y=20 value="System:" fontsize=10
+text x=80 y=20sensor=program program="echo ${USER}@`hostname`" fontsize=10
+
+text x=10 y=32 value="Distro:" fontsize=10
+text x=80 y=32 sensor=program program="lsb_release -d |awk -F'\t' '{print $2}'" fontsize=10
+
+text x=10 y=44 value="Uptime:"
+text x=80 y=44 sensor=uptime format="%d day(s) %H h %M m" interval=60000
+
+text x=10 y=56 value="Kernel:"
+text x=80 y=56 sensor=program program="echo  `uname -r`"
+
+text x=10 y=68 value="KDE:"
+text x=80 y=68 sensor=program program="kde-config --version | grep KDE | sed -e 's/.*: //'"
+
+

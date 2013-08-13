@@ -1,0 +1,14 @@
+################################################
+#                                              #
+#                 Processes                    #
+#                                              #
+################################################
+
+karamba x=0 y=0 w=240 h=110 LOCKED=false
+image x=0 y=0 path="img/blackgoldw.png"
+defaultfont font="Sans" fontsize=10 color=255,255,255 shadow=0
+
+<group> x=0 y=8
+
+text x=80 y=9 value="Processes" fontsize=11 font="good times"
+text  x=185 y=25 sensor=program program="ps axo comm,user,pcpu --sort pcpu|tail -n5" align=right interval=1000

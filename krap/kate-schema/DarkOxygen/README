@@ -1,0 +1,24 @@
+DarkOxygen v 0.1
+
+DarkOxygen is color scheme for KDE advanced text editor component featuring a dark background for eye-relaxing coding, based upon Oxygen palette. It has specific improvements for C/C++, Python, PHP/HTML, LaTeX, Matlab/Octave. Other may need tuning.
+
+Installation:
+1) Run install.sh script.
+ - OR -
+1) append:
+	- "kateschemarc.darkoxygen" to "~/.kde/share/config/kateschemarc";
+	- "katesyntaxhighlightingrc.darkoxygen" to "~/.kde/share/config/katesyntaxhighlightingrc".
+(actually the install.sh script does that using cat).
+2) Change 'Default schema' of your favorite Qt text editor (kate, kwrite, quanta, kdevelop, etc...) to 'DarkOxygen'.
+
+To do:
+- complete syntax highlighting for other languages (let me know if you happen to improve it).
+
+Author:
+Riccardo Metere <riccardometere@altervista.org>
+
+License:
+GPLv2
+
+Credits:
+1. Jan Dvorak - http://kde-look.org/content/show.php/Coolate+color+scheme+for+KDevelop+Kate?content=34243 - the install script and this README was "borrowed" from him.

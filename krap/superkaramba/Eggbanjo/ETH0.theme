@@ -1,0 +1,34 @@
+################################################
+#                                              #
+#         Ethernet Interface eth0              #
+#                                              #
+################################################
+
+karamba x=0 y=0 w=240 h=110 LOCKED=false
+
+image x=0 y=0 path="img/blackgoldw.png"
+
+defaultfont font="Sans" fontsize=10 color=255,255,255 shadow=0
+
+################################################
+
+
+<GROUP> X=0 Y=8 
+
+text x=80 y=9 value="Wan eth0" fontsize=11 font="good times"
+
+text x=70 y=24 sensor=program program="/sbin/ifconfig eth0 |grep 'inet ' | cut -d : -f2 | cut -d ' ' -f1" fontsize=11 font="good times" interval=6000
+text x=40 y=40 value="ExtIP :" fontsize=11 font="good times"
+text x=90 y=40 sensor=program program="/home/nick/karmba/Eggbanjo/ip.py" fontsize=11 font="good times" interval=60000 
+
+text  x=10 y=55 value="Down" color=247,1,1
+text  x=215 y=55 sensor=network device="eth0" format="%in KB/s" decimals=1 align=right color=247,1,1 interval=1000
+text  x=10 y=70 value="Up" color=1,247,1
+text  x=215 y=70 sensor=network device="eth0" format="%out KB/s" decimals=1 align=right color=1,247,1 interval=1000
+
+################################################
+#eth0 speed graph
+
+graph x=60 y=57 w=90 h=20 color=247,1,1 points=100 sensor=network format="%out" device="eth0" max=80 interval=1000
+graph x=60 y=54 w=90 h=22 color=1,247,1 points=100 sensor=network format="%in" device="eth0" max=500 interval=1000
+

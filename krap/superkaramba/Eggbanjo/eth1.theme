@@ -1,0 +1,32 @@
+################################################
+#                                              #
+#         Ethernet Interface eth1             #
+#                                              #
+################################################
+
+karamba x=0 y=0 w=240 h=110 LOCKED=false
+
+image x=0 y=0 path="img/blackgoldw.png"
+
+defaultfont font="Sans" fontsize=10 color=255,255,255 shadow=0
+
+################################################
+
+
+<GROUP> X=0 Y=8 
+
+text x=80 y=9 value="Lan eth1" fontsize=11 font="good times"
+
+text x=85 y=30 sensor=program program="/sbin/ifconfig eth1 |grep 'inet ' | cut -d : -f2 | cut -d ' ' -f1" fontsize=11 font="good times" interval=6000
+
+text  x=20 y=55 value="Down" color=247,1,1
+text  x=215 y=55 sensor=network device="eth1" format="%in KB/s" decimals=1 align=right color=247,1,1 interval=1000
+text  x=20 y=70 value="Up" color=1,247,1
+text  x=215 y=70 sensor=network device="eth1" format="%out KB/s" decimals=1 align=right color=1,247,1 interval=1000
+
+################################################
+#eth1 speed graph
+
+graph x=60 y=57 w=90 h=20 color=247,1,1 points=100 sensor=network format="%out" device="eth1" max=800 interval=1000
+graph x=60 y=54 w=90 h=22 color=1,247,1 points=100 sensor=network format="%in" device="eth1" max=5000 interval=1000
+

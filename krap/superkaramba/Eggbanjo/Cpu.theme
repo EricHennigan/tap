@@ -1,0 +1,34 @@
+################################################
+#                                              #
+#               Procesor Monitor               #
+#                                              #
+################################################
+
+karamba x=0 y=0 w=240 h=110 LOCKED=false
+
+image x=0 y=0 path="img/blackgoldw.png"
+
+defaultfont font="Sans" fontsize=10 color=255,255,255 shadow=0
+
+<GROUP> X=0 Y=8
+
+text x=100 y=9 value="CPU" fontsize=11 font="good times"
+
+text x=10 y=30 value="MHz:"
+text x=80 y=30 sensor=program program="echo `cat /proc/cpuinfo | grep 'cpu MHz' | sed -e 's/.*: //'| sed -e 's/\..../ MHz/' | line 1`" interval=60000
+
+text x=10 y=42 value="Usage:"
+text x=80 y=42 sensor=cpu format="%v %"
+
+bar x=145 y=44 path="img/bar_cpu_usage.png" sensor=cpu format="%v"
+image x=145 y=44 path="img/grid.png"
+
+text x=10 y=55 value="Temp:"
+text x=113 y=55 value="C"
+
+# if sensor instaled
+text x=80 y=55 sensor=program program="sensors |grep 'CPU Temp:' |cut -b 13,14,15,16" interval=6000
+bar x=145 y=57 path="img/bar_cpu_temp.png" sensor=program program="sensors |grep 'CPU Temp:' |cut -b 13,14,15,16" interval=6000
+image x=145 y=57 path="img/grid.png"
+
+

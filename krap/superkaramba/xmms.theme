@@ -1,0 +1,32 @@
+
+# general
+KARAMBA  X=0 Y=0 w=240 h=110 interval=1000 locked=true
+defaultfont font="Sans" fontsize=10 color=255,255,255 shadow=0
+image x=0 y=0 path="img/blackgoldw.png"
+
+<group> x=0 y=8
+
+text x=90 y=9 value="Xmms" fontsize=11 font="good times"
+
+
+text x=0 y=23 w=230 h=13 align="center" sensor=xmms bgcolor=255,255,255 color=255,255,255  font="good times" fontsize=9 format="%title" interval=1000
+
+text x=10 y=40 w=230 h=13  sensor=xmms bgcolor=255,255,255 color=255,255,255  font="Lucida MAC" fontsize=10 format="Time:%time" interval=1000
+
+text x=130 y=40 w=230 h=13  sensor=xmms bgcolor=255,255,255 color=255,255,255  font="Lucida MAC" fontsize=10 format="Remain:%remain" interval=1000
+
+image x=100 y=65 path="img/play.png"
+image x=160 y=65 path="img/next.png"
+image x=130 y=65 path="img/pause.png"
+image x=70 y=65 path="img/stop.png"
+image x=40 y=65 path="img/prev.png"
+
+BAR  x=10 y=60 w=217 h=8 SENSOR=XMMS  INTERVAL=100 FORMAT="%full"
+BAR  x=10 y=60 w=217 h=8 SENSOR=XMMS PATH="img/bar_1.png" INTERVAL=100 FORMAT="%ms"
+CLICKAREA   x=40   Y=65    W=26 H=24 SENSOR=PROGRAM ONCLICK="xmms --rew"
+CLICKAREA   X=70   Y=65   W=26 H=24 SENSOR=PROGRAM ONCLICK="xmms --stop"
+CLICKAREA   x=100  Y=65   W=30 H=30 SENSOR=PROGRAM ONCLICK="xmms --play"
+CLICKAREA   x=130   Y=65   W=26 H=24 SENSOR=PROGRAM ONCLICK="xmms --play-pause"
+CLICKAREA   x=160   Y=65   W=30 H=30 SENSOR=PROGRAM ONCLICK="xmms --fwd"
+
+color=0,0,128

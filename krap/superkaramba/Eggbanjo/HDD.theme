@@ -1,0 +1,30 @@
+################################################
+#                                              #
+#               File System                    #
+#                                              #
+################################################
+
+karamba x=0 y=0 w=240 h=110 LOCKED=false
+
+image x=0 y=0 path="img/blackgoldw.png"
+
+defaultfont font="Sans" fontsize=10 color=255,255,255 shadow=0
+
+################################################
+
+<GROUP> X=0 Y=8
+
+text x=75 y=9 value="File System:" fontsize=11 font="good times"
+text x=70 y=25 value="Free | Used | Capacity | %" fontsize=10
+
+text x=10 y=40 value="Root:"
+text x=64 y=40 sensor=disk mountpoint="/" format="%fg GB | %ug GB | %tg GB | %up%" align=left
+
+text x=10 y=72 value="Hdd2:"
+text x=64 y=72 sensor=disk mountpoint="/media/" format="%fg GB | %ug GB | %tg GB | %up%" align=left
+
+image x=75 y=52 path="img/trans-bg.png" 
+bar x=76 y=52 w=100 h=3 vertical=false path="img/bar2.png" sensor=DISK format="%u" mountpoint="/" interval="90000" max=16582 path="img/bar2.png"
+
+image x=75 y=84 path="img/trans-bg.png" 
+bar x=76 y=84 w=100 h=3 vertical=false path="img/bar2.png" sensor=DISK format="%u" mountpoint="/media/" interval="90000" max=16582 path="img/bar2.png"
