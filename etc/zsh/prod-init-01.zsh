@@ -1,6 +1,16 @@
 
 export PATH="/opt/rave/lib:/opt/rave/client:$PATH"
 
+if [[ -f "$HOME/.svnkit" ]]; then
+    source $HOME/.svnkit
+fi
+
+function rave-update-svnkit {
+    svn export svn://ravesvn/Rave/tools/svnkit/install.sh /tmp/svnkit-install.sh
+    cd /tmp
+    ./svnkit-install.sh
+}
+
 alias rave-power="/opt/rave/client/PwrControl"
 alias rave-network="/opt/rave/lib/networkConfig.py"
 
