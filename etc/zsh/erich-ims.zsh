@@ -18,6 +18,10 @@ function rave-update-svnkit {
     ./svnkit-install.sh
 }
 
+function rave-checkout {
+  svn checkout svn://ravesvn.ims.dom/Rave/projects/trunk $1/projects
+}
+
 function towork {
   optirun true
   sleep 1

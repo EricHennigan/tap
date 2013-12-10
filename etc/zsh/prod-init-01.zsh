@@ -1,22 +1,9 @@
 
+source erich-ims.zsh
 export PATH="/opt/rave/lib:/opt/rave/client:$PATH"
-
-if [[ -f "$HOME/.svnkit" ]]; then
-    source $HOME/.svnkit
-fi
-
-function rave-update-svnkit {
-    svn export svn://ravesvn/Rave/tools/svnkit/install.sh /tmp/svnkit-install.sh
-    cd /tmp
-    ./svnkit-install.sh
-}
 
 alias rave-power="/opt/rave/client/PwrControl"
 alias rave-network="/opt/rave/lib/networkConfig.py"
-
-function rave-checkout {
-  svn checkout svn://ravesvn.ims.dom/Rave/projects/trunk $1/projects
-}
 
 function rave-ssh {
   ssh root@172.168.0.10
