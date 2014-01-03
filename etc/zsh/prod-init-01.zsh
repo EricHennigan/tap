@@ -1,6 +1,10 @@
 
-source erich-ims.zsh
+source "$HOME/tap/etc/zsh/erich-ims.zsh"
 export PATH="/opt/rave/lib:/opt/rave/client:$PATH"
+
+#================
+# Rave helper functions
+#----------------
 
 alias rave-power="/opt/rave/client/PwrControl"
 alias rave-network="/opt/rave/lib/networkConfig.py"

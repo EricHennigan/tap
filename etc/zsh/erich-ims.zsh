@@ -5,18 +5,9 @@ export PATH="$texdir/bin/i386-linux:$PATH"
 export INFOPATH="$texdir/texmf-dist/doc/info:$INFOPATH"
 export MANPATH="$texdir/texmf-dist/doc/man:$INFOPATH"
 
-# setup svn tools
-if [[ -f "$HOME/.svnkit" ]]; then
-  source $HOME/.svnkit
-  #export SVNME=SVNME=svn://ravesvn/Rave/projects/branches/private/erich
-  #export SVNUSER=ehennigan
-fi
-
-function rave-update-svnkit {
-    svn export svn://ravesvn/Rave/tools/svnkit/install.sh /tmp/svnkit-install.sh
-    cd /tmp
-    ./svnkit-install.sh
-}
+#================
+# screen config functions
+#----------------
 
 function rave-checkout {
   svn checkout svn://ravesvn.ims.dom/Rave/projects/trunk $1/projects
@@ -36,4 +27,20 @@ function tohome {
   start-stop-daemon --stop --exec /usr/bin/screenclone -- -d :8 -x 1
   sleep 1
   optirun false
+}
+
+#================
+# SVN setup
+#----------------
+
+if [[ -f "$HOME/.svnkit" ]]; then
+    source $HOME/.svnkit
+    export SVNUSER=ehennigan
+    #export SVNME=svn://ravesvn/Rave/projects/branches/private/erich
+fi
+
+function rave-update-svnkit {
+    svn export svn://ravesvn/Rave/tools/svnkit/install.sh /tmp/svnkit-install.sh
+    cd /tmp
+    ./svnkit-install.sh
 }
