@@ -1,0 +1,8 @@
+Host cogito
+    HostName cogitolingua.net
+    User f2178525
+
+Host tunnel
+    HostName cogitolingua.net
+    LocalForward 2222 localhost:2222
+    User f2178525
