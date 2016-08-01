@@ -114,14 +114,6 @@ export OOO_FORCE_DESKTOP="gnome"
 #export PYTHONPATH="$HOME/tap/lib/python:$HOME/tap/lib/python/NITFplugins:$PYTHONPATH"
 #export DFFPATH="$HOME/software/extract75" # location of *.dff and *.pff files for extract75
 
-# Amazon Elastic cloud
-export EC2_KEYPAIR=ec2
-export EC2_URL=https://ec2.us-west-1.amazonaws.com
-export EC2_PRIVATE_KEY=$HOME/.ec2/pk-5C3MH7AMF5QV7WIMNDOSBWQICGUUQDOC.pem
-export EC2_CERT=$HOME/.ec2/cert-5C3MH7AMF5QV7WIMNDOSBWQICGUUQDOC.pem
-export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
-alias sshaz="ssh -i $HOME/.ec2/cs142a.pem ubuntu@ec2-50-112-56-221.us-west-2.compute.amazonaws.com"
-
 # LaTeX
 export TEXMFHOME=$HOME/tap/etc/texmf
 
