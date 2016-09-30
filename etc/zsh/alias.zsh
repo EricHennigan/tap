@@ -90,14 +90,6 @@ export NOTESFILE="$HOME/tap/etc/notes"
 alias vinote="vi $NOTESFILE"
 # the note executable is a python script: ~/tap/bin/note
 
-#Marble
-export PATH="$HOME/software/marble/bin:$PATH"
-export LD_LIBRARY_PATH="$HOME/software/marble/lib:$LD_LIBRARY_PATH"
-
-#Racket Development
-export PATH="$HOME/software/racket-5.1/bin:$PATH"
-export LD_LIBRARY_PATH="$HOME/software/racket-5.1/lib:$LD_LIBRARY_PATH"
-
 #Hg projects
 export PATH="$HOME/software/hgview/bin:$PATH"
 #export PYTHONPATH="$HOME/software/hgview:$PYTHONPATH"
@@ -109,7 +101,6 @@ alias dis='udcli -64'
 #general environment vars
 export PATH="$HOME/tap/bin:$PATH:/usr/sbin"
 export MANPATH="$HOME/tap/man:$MANPATH"
-export LD_LIBRARY_PATH="$HOME/tap/lib:$LD_LIBRARY_PATH"
 export OOO_FORCE_DESKTOP="gnome"
 #export PYTHONPATH="$HOME/tap/lib/python:$HOME/tap/lib/python/NITFplugins:$PYTHONPATH"
 #export DFFPATH="$HOME/software/extract75" # location of *.dff and *.pff files for extract75
