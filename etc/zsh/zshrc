@@ -49,4 +49,5 @@ setopt share_history
 DOT=$HOME/tap/etc/
 source $DOT/zsh/alias.zsh
 source $DOT/zsh/$(hostname).zsh
+alias gd="g4d"
 
