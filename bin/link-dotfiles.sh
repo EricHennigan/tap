@@ -12,7 +12,7 @@ ln -sf tap/etc/tmux.conf .tmux.conf
 ln -sf tap/etc/ssh/config .ssh/config
 
 mkdir -p $HOME/.config
-for file in $HOME/tap/etc/config ; do
+for file in $HOME/tap/etc/config/* ; do
   ln -sf $file $HOME/.config/$(basename $file)
 done
 
