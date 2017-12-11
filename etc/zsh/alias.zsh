@@ -110,3 +110,6 @@ export TEXMFHOME=$HOME/tap/etc/texmf
 
 # Powerline
 export PATH="$HOME/.local/bin:$PATH"
+
+# Golang
+export GOPATH="$HOME/.go"
