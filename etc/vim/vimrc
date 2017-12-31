@@ -26,7 +26,7 @@ set nohlsearch
 set background=dark
 
 " customize showing of special characters
-set listchars=tab:▸\ ,trail:$
+set listchars=tab:┊\ ,trail:$
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 set list
