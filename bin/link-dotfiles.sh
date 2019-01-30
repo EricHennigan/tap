@@ -2,12 +2,12 @@
 
 # This script installs the dotfiles
 cd $HOME
-
-ln -sf tap/etc/zsh/zshrc .zshrc
+ln -sf tap/etc/gitconfig .gitconfig
+ln -sf tap/etc/hgrc .hgrc
+ln -sf tap/etc/tmux/tmux.conf .tmux.conf
 ln -sf tap/etc/vim .vim
 ln -sf tap/etc/vim/vimrc .vimrc
-ln -sf tap/etc/gitconfig .gitconfig
-ln -sf tap/etc/tmux/tmux.conf .tmux.conf
+ln -sf tap/etc/zsh/zshrc .zshrc
 
 ln -sf tap/etc/ssh/config .ssh/config
 
