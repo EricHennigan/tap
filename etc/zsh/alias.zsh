@@ -25,6 +25,7 @@ alias top="htop"
 alias diff2="diff -y --suppress-common-lines"
 alias emacs="emacs -nw"
 alias edit="emacs -nw"
+alias cdiff=ydiff
 
 #miss pellings
 alias tali="tail"
@@ -45,7 +46,6 @@ alias pd="pushd"
 alias pop="popd"
 alias pp="pop"
 #alias pwd="dirs"
-
 
 alias lh="history | sort -nr | less"
 alias h="history | grep -i"

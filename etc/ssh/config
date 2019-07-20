@@ -6,3 +6,6 @@ Host tunnel
     HostName cogitolingua.net
     LocalForward 2222 localhost:2222
     User f2178525
+
+Match host *.corp.google.com
+  ProxyCommand corp-ssh-helper %h %p
