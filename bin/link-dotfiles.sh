@@ -5,6 +5,7 @@ cd $HOME
 ln -sf tap/etc/gitconfig .gitconfig
 ln -sf tap/etc/hgrc .hgrc
 ln -sf tap/etc/tmux/tmux.conf .tmux.conf
+ln -sf tap/etc/tmux .tmux
 ln -sf tap/etc/vim .vim
 ln -sf tap/etc/vim/vimrc .vimrc
 ln -sf tap/etc/zsh/zshrc .zshrc
@@ -21,6 +22,5 @@ cd $HOME/tap/etc/zsh
 touch $(hostname).zsh
 git clone git://github.com/robbyrussell/oh-my-zsh.git
 
-cd $HOME/tap/etc/tmux
-git clone git://github.com/tmux-plugins/tmux-continuum.git
-git clone git://github.com/tmux-plugins/tmux-resurrect.git
+mkdir $HOME/tap/etc/tmux/plugins
+git clone git://github.com/tmux-plugins/tpm $HOME/tap/etc/tmux/plugins/tpm

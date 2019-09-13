@@ -23,7 +23,16 @@ set shiftwidth=2
 set expandtab
 set ignorecase
 set nohlsearch
+set number
+set paste
+
+"appearance
 set background=dark
+if &diff
+  let g:solarized_diffmode="high"
+  colorscheme solarized
+endif
+
 
 " customize showing of special characters
 set listchars=tab:┊\ ,trail:$
@@ -70,10 +79,16 @@ let g:miniBufExplModSelTarget = 1
 ":match ExtraWhitespace /^\t*\zs \+/      "spaces used for indenting (only tabs for indenting).
 
 " highlight columns past 80 chars
-set colorcolumn=81
+set colorcolumn=81,101
+highlight ColorColumn ctermbg=0
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "match OverLength /\%81v.\+/
 
 " NerdTree
 map <leader>n :NERDTreeToggle<CR><CR>
 let g:NERDTreeWinPos = "right"
+
+" Glug
+source /usr/share/vim/google/glug/bootstrap.vim
+Glug gtimporter
+Glug youcompleteme-google
