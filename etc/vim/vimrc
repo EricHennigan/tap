@@ -33,29 +33,44 @@ if &diff
   colorscheme solarized
 endif
 
-
 " customize showing of special characters
 set listchars=tab:┊\ ,trail:$
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
-set list
+set fillchars=fold:-,vert:│
 
-" customize status line
+" Customize layout colors
+set cursorline
+highlight CursorLine cterm=none
+highlight LineNr cterm=none ctermfg=darkred
+highlight CursorLineNr cterm=bold ctermfg=red
+highlight VertSplit cterm=none ctermbg=black ctermfg=darkred
+highlight StatusLine cterm=bold ctermbg=black ctermfg=yellow
+highlight StatusLineNC cterm=none ctermbg=black ctermfg=darkblue
+highlight SignColumn cterm=bold ctermbg=none ctermfg=red
+highlight Pmenu ctermbg=black ctermfg=darkgreen
+highlight PmenuSel cterm=reverse ctermbg=none ctermfg=green
+highlight SpellBad cterm=none ctermbg=black
+highlight SpellCap cterm=reverse
+au FileType proto highlight clear SpellCap
+
+" Customize StatusLine
 set laststatus=2
-set statusline=%t       "tail of the filename
-set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-set statusline+=%{&ff}] "file format
-set statusline+=%h      "help file flag
-set statusline+=%m      "modified flag
-set statusline+=%r      "read only flag
-set statusline+=%y      "filetype
-set statusline+=%=      "left/right separator
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
+set noshowmode
+highlight User1 ctermbg=black ctermfg=green
+set statusline=
+set statusline+=%1*\ %n\             " Buffer number
+set statusline+=%1*\ %Y\             " FileType
+set statusline+=%1*│                 " Separator
+set statusline+=%0*\ %f%m%r%h%w\   " File path, modified, readonly, helpfile, preview
+"set statusline+=%0*\ %<%F%m%r%h%w\   " File path, modified, readonly, helpfile, preview
+set statusline+=%=                   " Right Side
+set statusline+=%1*│                 " Separator
+set statusline+=%1*\ %c,             " cursor column
+set statusline+=%1*%l/%L             " cursor line/total lines
+set statusline+=%1*\ %P              " percent through file
 
 " use spell checking
 set spell
+highlight SpellBad ctermbg=0
 
 " use tab completion
 " set wildmode=list
@@ -72,7 +87,7 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1 
 
 " Annoying Whitespace
-:highlight ExtraWhitespace ctermbg=blue guibg=blue
+:highlight ExtraWhitespace ctermbg=blue
 :match ExtraWhitespace /\s\+$/           "trailing whitespace
 :match ExtraWhitespace /\s\+$\| \+\ze\t/ "trailing whitespace and spaces before a tab
 :match ExtraWhitespace /[^\t]\zs\t\+/    "tabs that are not at the start of a line
@@ -81,8 +96,6 @@ let g:miniBufExplModSelTarget = 1
 " highlight columns past 80 chars
 set colorcolumn=81,101
 highlight ColorColumn ctermbg=0
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
 
 " NerdTree
 map <leader>n :NERDTreeToggle<CR><CR>
@@ -92,3 +105,12 @@ let g:NERDTreeWinPos = "right"
 source /usr/share/vim/google/glug/bootstrap.vim
 Glug gtimporter
 Glug youcompleteme-google
+nnoremap <leader>g :YcmCompleter GoToImprecise<CR>
+nnoremap <leader>c :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>t :YcmCompleter GetType<CR>
+nnoremap <leader>r :YcmCompleter GoToReferences<CR>
+
+" set backup location
+set backupdir=~/tmp/vim//
+set directory=~/tmp/vim//
+set undodir=~/tmp/vim//
