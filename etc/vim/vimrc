@@ -26,47 +26,32 @@ set nohlsearch
 set number
 set paste
 
-"appearance
-set background=dark
-if &diff
-  let g:solarized_diffmode="high"
-  colorscheme solarized
-endif
-
-" customize showing of special characters
-set listchars=tab:┊\ ,trail:$
-set fillchars=fold:-,vert:│
-
-" Customize layout colors
+" Appearance
 set cursorline
-highlight CursorLine cterm=none
-highlight LineNr cterm=none ctermfg=darkred
-highlight CursorLineNr cterm=bold ctermfg=red
-highlight VertSplit cterm=none ctermbg=black ctermfg=darkred
-highlight StatusLine cterm=bold ctermbg=black ctermfg=yellow
-highlight StatusLineNC cterm=none ctermbg=black ctermfg=darkblue
-highlight SignColumn cterm=bold ctermbg=none ctermfg=red
-highlight Pmenu ctermbg=black ctermfg=darkgreen
-highlight PmenuSel cterm=reverse ctermbg=none ctermfg=green
-highlight SpellBad cterm=none ctermbg=black
-highlight SpellCap cterm=reverse
-au FileType proto highlight clear SpellCap
-
-" Customize StatusLine
+set background=dark
 set laststatus=2
 set noshowmode
-highlight User1 ctermbg=black ctermfg=green
-set statusline=
-set statusline+=%1*\ %n\             " Buffer number
-set statusline+=%1*\ %Y\             " FileType
-set statusline+=%1*│                 " Separator
-set statusline+=%0*\ %f%m%r%h%w\   " File path, modified, readonly, helpfile, preview
-"set statusline+=%0*\ %<%F%m%r%h%w\   " File path, modified, readonly, helpfile, preview
-set statusline+=%=                   " Right Side
-set statusline+=%1*│                 " Separator
-set statusline+=%1*\ %c,             " cursor column
-set statusline+=%1*%l/%L             " cursor line/total lines
-set statusline+=%1*\ %P              " percent through file
+
+" ColorScheme
+colorscheme jellybeans
+"let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_termcolors = 16
+
+" Airline Appearance (gruvbox?)
+let g:airline_powerline_fonts = 1
+let g:airline_detect_spell = 0
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_mode_map = {
+    \ 'n' : 'N',
+    \ 'v' : 'V',
+    \ 'i' : 'I',
+    \ 'p' : 'P',
+    \ }
 
 " use spell checking
 set spell
@@ -80,35 +65,47 @@ highlight SpellBad ctermbg=0
 filetype plugin on
 let g:tex_flavor='latex'
 
-" MiniBuffer https://github.com/fholgado/minibufexpl.vim
-let g:miniBufExplMapWindowNavVim = 1 
-let g:miniBufExplMapWindowNavArrows = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
-let g:miniBufExplModSelTarget = 1 
-
 " Annoying Whitespace
-:highlight ExtraWhitespace ctermbg=blue
-:match ExtraWhitespace /\s\+$/           "trailing whitespace
-:match ExtraWhitespace /\s\+$\| \+\ze\t/ "trailing whitespace and spaces before a tab
-:match ExtraWhitespace /[^\t]\zs\t\+/    "tabs that are not at the start of a line
-":match ExtraWhitespace /^\t*\zs \+/      "spaces used for indenting (only tabs for indenting).
+highlight ExtraWhitespace ctermbg=red
+set listchars=tab:┊\ ,trail:$
+set fillchars=fold:-,vert:│
+match ExtraWhitespace /\s\+$/           "trailing whitespace
+match ExtraWhitespace /\s\+$\| \+\ze\t/ "trailing whitespace and spaces before a tab
+match ExtraWhitespace /[^\t]\zs\t\+/    "tabs that are not at the start of a line
+"match ExtraWhitespace /^\t*\zs \+/      "spaces used for indenting (only tabs for indenting).
 
 " highlight columns past 80 chars
 set colorcolumn=81,101
-highlight ColorColumn ctermbg=0
+highlight ColorColumn ctermbg=234 guibg=#1c1c1c
 
 " NerdTree
-map <leader>n :NERDTreeToggle<CR><CR>
+map <leader>n :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
+let g:NERDTreeQuitOnOpen = 1
 
-" Glug
+" BufferExplorer
+nnoremap gb <Leader>be
+
+" Code Navigation
 source /usr/share/vim/google/glug/bootstrap.vim
 Glug gtimporter
 Glug youcompleteme-google
-nnoremap <leader>g :YcmCompleter GoToImprecise<CR>
-nnoremap <leader>c :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>t :YcmCompleter GetType<CR>
-nnoremap <leader>r :YcmCompleter GoToReferences<CR>
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'Kythe Language Server',
+    \ 'cmd': {server_info->['/google/bin/releases/grok/tools/kythe_languageserver', '--google3']},
+    \ 'whitelist': ['python', 'go', 'java', 'cpp', 'proto'],
+    \})
+map <leader>g :YcmCompleter GoToImprecise<CR>
+map <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>c :YcmCompleter GoToDeclaration<CR>
+map <leader>t :YcmCompleter GetType<CR>
+map <leader>r :YcmCompleter GoToReferences<CR>
+map <leader>f :YcmCompleter FixIt<CR>
+autocmd FileType java map <leader>d :LspDefinition<CR>
+autocmd FileType java map <leader>c :LspDeclaration<CR>
+autocmd FileType java map <leader>t :LspPeekDefinition<CR>
+autocmd FileType java map <leader>r :LspReferences<CR>
+autocmd FileType java map <leader>h :LspHover<CR>
 
 " set backup location
 set backupdir=~/tmp/vim//
