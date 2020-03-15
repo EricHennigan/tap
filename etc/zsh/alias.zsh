@@ -54,6 +54,7 @@ alias hxm="hexdump -C $@ | less"
 alias s="source $HOME/.bash_login"
 alias xterm="xterm -ls"
 alias nto0="tr '\n' '\000'"
+alias hgp="hg pdiff | ydiff -s"
 
 dict() { grep -i "$@" /usr/share/dict/*; }
 trash(){ mv "$@" $HOME/tap/trash/; }
