@@ -49,3 +49,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "etc/zsh/ohmyzsh"]
+	path = etc/zsh/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh

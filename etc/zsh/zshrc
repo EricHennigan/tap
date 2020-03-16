@@ -1,7 +1,7 @@
 ### OH MY ZSH settings
 
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/tap/etc/zsh/oh-my-zsh
+ZSH=$HOME/tap/etc/zsh/ohmyzsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
