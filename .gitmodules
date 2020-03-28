@@ -40,14 +40,14 @@
 [submodule "etc/vim/bundle/vim-colorschemes"]
 	path = etc/vim/bundle/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes
-[submodule "tmux/plugins/tmux-continuum"]
-	path = tmux/plugins/tmux-continuum
+[submodule "etc/tmux/plugins/tmux-continuum"]
+	path = etc/tmux/plugins/tmux-continuum
 	url = https://github.com/tmux-plugins/tmux-continuum
-[submodule "tmux/plugins/tmux-resurrect"]
-	path = tmux/plugins/tmux-resurrect
+[submodule "etc/tmux/plugins/tmux-resurrect"]
+	path = etc/tmux/plugins/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect
-[submodule "tmux/plugins/tpm"]
-	path = tmux/plugins/tpm
+[submodule "etc/tmux/plugins/tpm"]
+	path = etc/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 [submodule "etc/zsh/ohmyzsh"]
 	path = etc/zsh/ohmyzsh
