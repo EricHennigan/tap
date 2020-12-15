@@ -47,6 +47,7 @@ alias pop="popd"
 alias pp="pop"
 #alias pwd="dirs"
 
+alias colortest="msgtest --color=test"
 alias lh="history | sort -nr | less"
 alias h="history | grep -i"
 alias hx="hexdump -C"
