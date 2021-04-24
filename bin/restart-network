@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+#echo "killing Network"
+#sudo pkill -9 NetworkManager
+#sleep 1
+
+echo "removing Modules"
+sudo rmmod iwlagn
+sudo rmmod iwlcore
+sudo rmmod led_class
+sudo rmmod mac80211
+sudo rmmod cfg80211
+sleep 2
+
+echo "adding Modules"
+sudo modprobe cfg80211
+sudo modprobe mac80211
+sudo modprobe led_class
+sudo modprobe iwlcore
+sudo modprobe iwlagn
+sleep 2
+
+#echo "booting Network"
+#sudo /usr/sbin/NetworkManager --pid-file=/var/run/NetworkManager/NetworkManager.pid

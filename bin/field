@@ -1,0 +1,89 @@
+#!/usr/bin/env python
+
+'''
+prints out the fields of a file
+field syntax is comma delimited python splices
+counting starts at 0
+'''
+
+from optparse import OptionParser
+import sys, itertools
+
+################
+# Options
+#===============
+usage = "usage: %prog splice,* [options]* [file]*"
+description = __doc__
+parser = OptionParser(usage=usage) #,description=description)
+parser.add_option("-d", "--delim", action="store", default="",
+    dest="delim", help="Set the delimiter string")
+################
+
+
+################
+# MAIN
+#===============
+def main():
+   for arg in files:
+
+      # autodetect splitting
+      lines = []
+      if not options.delim:
+         while 1:
+            line = arg.readline()
+            if not line: # got EOF
+               options.delim = ' '
+               break
+            lines.append( line )
+            comma = len(line.split(','))
+            tab   = len(line.split('\t'))
+            space = len(line.split(' '))
+            colon = len(line.split(':'))
+            slash = len(line.split('/'))
+            if comma==tab==space==colon==slash:
+               continue
+
+            # order lowest to highest prefrence
+            d = { colon:':', comma:',', tab:'\t', space:' ', slash:'/' }
+            keys = d.keys()
+            keys.sort()
+            options.delim = d[keys[-1]]
+            break
+
+      for x in lines, arg:
+         for line in x:
+            elems = [ y for y in line.strip().split(options.delim) if y!='' ]
+
+            ln = []
+            for field in options.fields:
+               try:
+                  if   2<len(field): ln.append( options.delim.join(elems[field[0]:field[1]:field[2]]) )
+                  elif 1<len(field): ln.append( options.delim.join(elems[field[0]:field[1]]) )
+                  else:              ln.append( elems[field[0]] )
+               except IndexError:    ln.append( '' )
+
+            print options.delim.join( ln )
+
+################
+
+if __name__=="__main__":
+   try:
+      # parse the fields string, to get ranges
+      fs = sys.argv.pop(1).split(',')
+      fields = []
+      for f in fs:
+         fields.append( [ (y and [int(y)] or [None])[0] for y in f.split(':') ] )
+
+   except:
+      print __doc__
+      parser.print_help()
+      sys.exit()
+
+   (options, args) = parser.parse_args()
+   options.fields = fields
+
+   if not args:
+      files = [sys.stdin]
+   else:
+      files = itertools.imap( open, args )
+   main()

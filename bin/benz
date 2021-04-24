@@ -1,0 +1,107 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import zipfile
+import shutil
+
+home = os.path.abspath(os.getcwd())
+ignoretypes = ['tr', 'rm', 'js', 'xbm', 'txt', 'pdf', 'ps', 'chm', 'htm', 'lit', 'ico', 'css', 'doc', 'wav', 'jpg', 'gif', 'html', 'djvu', 'rtf', 'nfo', 'sfv', 'png', 'xml', 'mso', 'mht', 'ppt', 'xls', 'db', 'ini', 'pcx', 'diz', 'shtml', 'text', 'jpeg', 'nb', 'exe', 'cpp', 'h', 'py', 'hpp', 'vcproj', 'c', 'java', 'rc', 'map', 'rc', 'lua', 'dep']
+
+
+def escapechars( fname ):
+    return fname.replace("\\", "\\\\") \
+                .replace("#", "\\#") \
+                .replace("&", "\\&") \
+                .replace("?", "\\?") \
+                .replace('"', '\\"') \
+                .replace("'", "\\'") \
+                .replace(",", "\\,") \
+                .replace(";", "\\;") \
+                .replace("(", "\\(") \
+                .replace(")", "\\)") \
+                .replace("[", "\\[") \
+                .replace("]", "\\]") \
+                .replace(" ", "\\ ")
+
+def unescapechars( fname ):
+    return fname.replace("\\\\", "\\") \
+                .replace("\\#", "#") \
+                .replace("\\&", "&") \
+                .replace("\\?", "?") \
+                .replace('\\"', '"') \
+                .replace("\\'", "'") \
+                .replace("\\ ", " ") \
+                .replace("\\,", ",") \
+                .replace("\\;", ";") \
+                .replace("\\(", "(") \
+                .replace("\\)", ")") \
+                .replace("\\[", "[") \
+                .replace("\\]", "]") \
+                .replace("\\ ", " ")
+
+def handlerar( cname ):
+    print "unrar e -o+ %s"%cname
+    os.system( "unrar e -o+ %s 2>&1 >/dev/null"%cname )
+
+def handlezip( cname ):
+    print "unzip -o %s"%cname
+    os.system( "unzip -o %s 2>&1 >/dev/null"%cname )
+
+def handleace( cname ):
+    print "unace e -o -y %s"%cname
+    os.system( "unace e -o -y %s 2>&1 >/dev/null"%cname )
+
+def handle7z( cname ):
+    print "7zg -d %s"%cname
+    os.system( "7zg -d %s"%cname )
+
+
+
+def handlearchive( fname ):
+    cname = escapechars(fname)
+    try:
+        os.mkdir( fname[:-4] )
+    except OSError:
+        # assume has already been extracted
+        os.remove( fname )
+        os.chdir( ".." )
+        return
+
+    os.chdir( fname[:-4] )
+    shutil.move( "../%s"%fname, fname )
+
+    ext = os.path.splitext( cname )[-1].lower()[1:]
+    if ext == "rar":
+        handlerar( cname )
+    elif ext == "zip":
+        handlezip( cname )
+    elif ext == "ace":
+        handleace( cname )
+    elif ext == "7z":
+        handle7z( cname )
+
+    os.remove( fname )
+    os.chdir( ".." )
+
+
+
+for root, dirs, files in os.walk("."):
+    for fi in files:
+        dir = os.path.join( home, root )
+        pth = os.path.join( dir, fi )
+        ext = os.path.splitext(pth)[-1].lower()[1:]
+
+        # things to extract
+        if ext  in ['rar', 'ace', 'zip', '7z']:
+            os.chdir( dir )
+            handlearchive( fi )
+            os.chdir( home )
+
+        # things to ignore
+        elif ext in ignoretypes:
+            pass
+        
+        # give warning about unknowns
+        else:
+            print "WARNING: could not handle file |%s| |%s|"%(ext, pth)

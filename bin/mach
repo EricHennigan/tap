@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+# Prepare the machine names, a custom hosts table
+
+MACHINE=`echo $0 | field -1 -d/`
+MACHINE_SHORT=`echo $MACHINE | field 0 -d.`
+SRC="$HOME"
+TGT="$HOME/tap/mnt/$MACHINE_SHORT"
+
+case $MACHINE in
+    xenu)
+        MACHINE=xenu.ics.uci.edu
+        ;;
+    xen)
+        MACHINE=xen.ics.uci.edu
+        ;;
+    cogito)
+        MACHINE=cogitolingua.net
+        ;;
+    array)
+        MACHINE=192.168.1.103 
+        SRC="/mnt/array"
+        TGT="$HOME/tap/mnt/array"
+        ;;
+esac
+ssh_cmd='ssh -Y -C'
+
+case $1 in
+    mount)
+        #TODO: test that mount directory is actually present, create if not
+        #TODO: test that sshfs is available, abort if not
+
+        sshfs $MACHINE:$SRC $TGT
+        ;;
+
+    umount)
+        fusermount -uz $TGT
+        ;;
+
+    remount)
+        fusermount -uz $TGT
+        sshfs $MACHINE:$SRC $TGT
+        ;;
+
+    ssh)
+        $ssh_cmd $MACHINE
+        ;;
+
+    cd)
+        cd $TGT
+        ;;
+esac

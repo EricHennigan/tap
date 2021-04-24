@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# this script checks to see if there is a movie at the Dollar Theater in Irvine
+# if so, then popup a dialog box
+
+theater="http://www.google.com/movies?hl=en&near=irvine&tid=cb3117dbe150599e"
+
+movie=$(curl "$theater" 2>/dev/null | sed -e's/div/\n/g' | grep -i $1)
+
+if [ -n "$movie" ]; then
+    DISPLAY=":0" XAUTHORITY="~/.Xauthority" kdialog --msgbox "$1 is at the Dollar Theatre."
+fi

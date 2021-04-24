@@ -1,0 +1,31 @@
+#!/usr/bin/env python2
+
+import os, re, sys
+
+def myprint(flag, lines):
+    if not flag:
+        return
+    for line in lines:
+        print line
+
+def grep(pattern, filename):
+    fi = open(filename, 'r')
+    pat = re.compile(pattern, re.IGNORECASE)
+
+    printing = False
+    section = []
+    for line in fi:
+        sline = line.rstrip()
+        if not sline:
+            myprint(printing, section)
+            section = []
+            printing = False
+        section.append(sline)
+        printing = printing or bool(pat.search(sline))
+
+if __name__ == "__main__":
+    if os.system('smount crypt'):
+        sys.exit()
+    grep(sys.argv[1], os.environ['PHONE'])
+    os.system('smount -u crypt')
+

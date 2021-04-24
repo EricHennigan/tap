@@ -1,0 +1,113 @@
+scriptencoding utf-8
+" ^^ Please leave the above line at the start of the file.
+set nocompatible          " Use Vim defaults (much better!)
+
+call pathogen#infect()
+syntax on
+filetype plugin indent on " enable indentation
+
+let mapleader = "\t"
+let g:mapleader = "\t"
+
+map qq :q!<CR>
+
+set grepprg=grep\ -nH\ $* " make grep always report filename
+set bs=2                " Allow backspacing over everything in insert mode
+set ai                  " Always set auto-indenting on
+set history=1000        " keep 1000 lines of command history
+set ruler               " Show the cursor position all the time
+
+"set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set ignorecase
+set nohlsearch
+set number
+set paste
+
+" Appearance
+set cursorline
+set background=dark
+set laststatus=2
+set noshowmode
+
+" ColorScheme
+colorscheme jellybeans
+"let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_termcolors = 16
+
+" Airline Appearance (gruvbox?)
+let g:airline_powerline_fonts = 1
+let g:airline_detect_spell = 0
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_mode_map = {
+    \ 'n' : 'N',
+    \ 'v' : 'V',
+    \ 'i' : 'I',
+    \ 'p' : 'P',
+    \ }
+
+" use spell checking
+set spell
+highlight SpellBad ctermbg=0
+
+" use tab completion
+" set wildmode=list
+" set wildmenu
+
+" latex
+filetype plugin on
+let g:tex_flavor='latex'
+
+" Annoying Whitespace
+highlight ExtraWhitespace ctermbg=red
+set listchars=tab:┊\ ,trail:$
+set fillchars=fold:-,vert:│
+" match ExtraWhitespace /\s\+$/           "trailing whitespace
+match ExtraWhitespace /\s\+$\| \+\ze\t/ "trailing whitespace and spaces before a tab
+" match ExtraWhitespace /[^\t]\zs\t\+/    "tabs that are not at the start of a line
+" match ExtraWhitespace /^\t*\zs \+/      "spaces used for indenting (only tabs for indenting).
+
+" highlight columns past 80 chars
+set colorcolumn=81,101
+highlight ColorColumn ctermbg=234 guibg=#1c1c1c
+
+" NerdTree
+map <leader>n :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right"
+let g:NERDTreeQuitOnOpen = 1
+
+" BufferExplorer
+nnoremap gb <Leader>be
+
+" Code Navigation
+source /usr/share/vim/google/glug/bootstrap.vim
+Glug gtimporter
+Glug youcompleteme-google
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'Kythe Language Server',
+    \ 'cmd': {server_info->['/google/bin/releases/grok/tools/kythe_languageserver', '--google3']},
+    \ 'whitelist': ['python', 'go', 'java', 'cpp', 'proto'],
+    \})
+map <leader>g :YcmCompleter GoToImprecise<CR>
+map <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>c :YcmCompleter GoToDeclaration<CR>
+map <leader>t :YcmCompleter GetType<CR>
+map <leader>r :YcmCompleter GoToReferences<CR>
+map <leader>f :YcmCompleter FixIt<CR>
+autocmd FileType java map <leader>d :LspDefinition<CR>
+autocmd FileType java map <leader>c :LspDeclaration<CR>
+autocmd FileType java map <leader>t :LspPeekDefinition<CR>
+autocmd FileType java map <leader>r :LspReferences<CR>
+autocmd FileType java map <leader>h :LspHover<CR>
+
+" set backup location
+set backupdir=~/tmp/vim//
+set directory=~/tmp/vim//
+set undodir=~/tmp/vim//

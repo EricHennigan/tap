@@ -1,0 +1,54 @@
+[submodule "etc/vim/bundle/vim-fugitive"]
+	path = etc/vim/bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "etc/vim/bundle/gruvbox"]
+	path = etc/vim/bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
+[submodule "etc/vim/bundle/jellybeans.vim"]
+	path = etc/vim/bundle/jellybeans.vim
+	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule "etc/vim/bundle/papercolor-theme"]
+	path = etc/vim/bundle/papercolor-theme
+	url = https://github.com/NLKNguyen/papercolor-theme.git
+[submodule "etc/vim/bundle/vim-airline"]
+	path = etc/vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "etc/vim/bundle/base16-vim"]
+	path = etc/vim/bundle/base16-vim
+	url = https://github.com/chriskempson/base16-vim.git
+[submodule "etc/vim/bundle/bufexplorer"]
+	path = etc/vim/bundle/bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer.git
+[submodule "etc/vim/bundle/vim-gummybears-colorscheme"]
+	path = etc/vim/bundle/vim-gummybears-colorscheme
+	url = https://github.com/dbb/vim-gummybears-colorscheme.git
+[submodule "etc/vim/bundle/vim-lsp"]
+	path = etc/vim/bundle/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp.git
+[submodule "etc/vim/bundle/async.vim"]
+	path = etc/vim/bundle/async.vim
+	url = https://github.com/prabirshrestha/async.vim.git
+[submodule "etc/vim/bundle/tender.vim"]
+	path = etc/vim/bundle/tender.vim
+	url = https://github.com/jacoborus/tender.vim
+[submodule "etc/vim/bundle/vim-one"]
+	path = etc/vim/bundle/vim-one
+	url = https://github.com/rakr/vim-one
+[submodule "etc/vim/bundle/vim-solarized"]
+	path = etc/vim/bundle/vim-solarized
+	url = git://github.com/ericbn/vim-solarized.git
+[submodule "etc/vim/bundle/vim-colorschemes"]
+	path = etc/vim/bundle/vim-colorschemes
+	url = https://github.com/flazz/vim-colorschemes
+[submodule "etc/tmux/plugins/tmux-continuum"]
+	path = etc/tmux/plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum
+[submodule "etc/tmux/plugins/tmux-resurrect"]
+	path = etc/tmux/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "etc/tmux/plugins/tpm"]
+	path = etc/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "etc/zsh/ohmyzsh"]
+	path = etc/zsh/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh

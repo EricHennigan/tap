@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# this script pops up a dialog box with a message
+
+if [ -n "$movie" ]; then
+    DISPLAY=":0" XAUTHORITY="~/.Xauthority" kdialog --msgbox "$1"
+fi
