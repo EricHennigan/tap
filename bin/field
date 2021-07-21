@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 '''
 prints out the fields of a file
@@ -45,7 +45,7 @@ def main():
 
             # order lowest to highest prefrence
             d = { colon:':', comma:',', tab:'\t', space:' ', slash:'/' }
-            keys = d.keys()
+            keys = list(d.keys())
             keys.sort()
             options.delim = d[keys[-1]]
             break
@@ -62,7 +62,7 @@ def main():
                   else:              ln.append( elems[field[0]] )
                except IndexError:    ln.append( '' )
 
-            print options.delim.join( ln )
+            print(options.delim.join(ln))
 
 ################
 
@@ -72,10 +72,10 @@ if __name__=="__main__":
       fs = sys.argv.pop(1).split(',')
       fields = []
       for f in fs:
-         fields.append( [ (y and [int(y)] or [None])[0] for y in f.split(':') ] )
+         fields.append([ (y and [int(y)] or [None])[0] for y in f.split(':') ])
 
    except:
-      print __doc__
+      print(__doc__)
       parser.print_help()
       sys.exit()
 
