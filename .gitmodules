@@ -52,3 +52,9 @@
 [submodule "etc/zsh/ohmyzsh"]
 	path = etc/zsh/ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh
+[submodule "etc/vim/bundle/vim-pathogen"]
+	path = etc/vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
+[submodule "etc/vim/bundle/nerdtree"]
+	path = etc/vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree
