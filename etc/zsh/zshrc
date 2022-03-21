@@ -48,5 +48,6 @@ setopt share_history
 
 DOT=$HOME/tap/etc/
 source $DOT/zsh/alias.zsh
-source $DOT/zsh/$(hostname).zsh
-
+if [[ -f "$DOT/zsh/$(hostname).zsh" ]]; then
+  source $DOT/zsh/$(hostname).zsh
+fi
