@@ -29,7 +29,7 @@ mkdir -p $HOME/tap/mnt/crypt
 read -r -p "Install crypt [y/N] " input
 case "$input" in
 [yY][eE][sS]|[yY])
-  git submodule add https://github.com/EricHennigan/crypt.git etc/crypt
+  git submodule add  git@github.com:EricHennigan/crypt.git etc/crypt
   ;;
 *)
   mkdir -p etc/crypt
