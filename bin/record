@@ -1,0 +1,99 @@
+#!/usr/bin/env python3
+
+'''
+Separates a file into records, based on 'delim'.
+Prints out records that match any of the 'matchers'
+Prints out only lines/groups from any of the 'yankers'
+Flattens the result onto a single line if requested.
+'''
+
+from optparse import OptionParser
+import itertools
+import re
+import sys
+
+################
+# Options
+#===============
+usage = "usage: %prog [options]* [file]*"
+description = __doc__
+parser = OptionParser(usage=usage) #,description=description)
+parser.add_option('-d', '--delim', action='store', default='',
+    dest='delim', help='Regex that matches the first line of a record')
+parser.add_option('-m', '--match', action='append', default=[],
+    dest='matchers', help='Regex that filters records')
+parser.add_option('-y', '--yank', action='append', default=[],
+    dest='yankers', help='Regex that yanks matching lines/groups')
+parser.add_option('-f', '--flatten', action='store_true', default=False,
+    dest='flatten', help='Flatten the record onto a single line')
+################
+
+def records(fi, opts):
+  rec = []
+  for line in fi:
+    sline = line.rstrip()
+    if opts.delim.search(sline):
+      yield rec
+      rec = []
+    rec.append(sline)
+  yield rec
+
+def matches(rec, opts):
+  if not opts.matchers:
+    return True
+  for pat in opts.matchers:
+    for line in rec:
+      if pat.search(line):
+        return True
+  return False
+
+def yank(rec, opts):
+  if not opts.yankers:
+    return rec
+  r = []
+  for pat in opts.yankers:
+    for line in rec:
+      m = pat.search(line)
+      if m and m.groups():
+        r.append(' '.join(m.groups()))
+      elif m:
+        r.append(line)
+  return r
+
+def flatten(rec, opts):
+  return opts.flatten.join(rec)
+
+def exit():
+  print(__doc__)
+  parser.print_help()
+  sys.exit()
+
+################
+# MAIN
+#===============
+def main(fi, opts):
+  for rec in records(fi, opts):
+    if not matches(rec, opts):
+      continue
+    rec = yank(rec, opts)
+    if not rec:
+      continue
+    rec = flatten(rec, opts)
+    print(rec)
+
+if __name__ == '__main__':
+  (options, args) = parser.parse_args()
+  args = [sys.stdin] if not args else (open(a) for a in args)
+
+  if not options.delim:
+    print("Please specify the delimiter")
+    exit()
+  else:
+    options.delim = re.compile(options.delim, re.IGNORECASE)
+
+  options.matchers = [re.compile(m, re.IGNORECASE) for m in options.matchers]
+  options.yankers = [re.compile(y, re.IGNORECASE) for y in options.yankers]
+  options.flatten = ' ' if options.flatten else '\n'
+
+  for file in args:
+    main(file, options)
