@@ -24,7 +24,7 @@ parser.add_option('-m', '--match', action='append', default=[],
     dest='matchers', help='Regex that filters records')
 parser.add_option('-y', '--yank', action='append', default=[],
     dest='yankers', help='Regex that yanks matching lines/groups')
-parser.add_option('-f', '--flatten', action='store_true', default=False,
+parser.add_option('-f', '--flatten', action='store', default='\n',
     dest='flatten', help='Flatten the record onto a single line')
 ################
 
@@ -93,7 +93,6 @@ if __name__ == '__main__':
 
   options.matchers = [re.compile(m, re.IGNORECASE) for m in options.matchers]
   options.yankers = [re.compile(y, re.IGNORECASE) for y in options.yankers]
-  options.flatten = ' ' if options.flatten else '\n'
 
   for file in args:
     main(file, options)
