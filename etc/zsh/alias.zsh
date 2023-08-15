@@ -57,7 +57,7 @@ alias xterm="xterm -ls"
 alias nto0="tr '\n' '\000'"
 alias hgp="hg pdiff | ydiff -s"
 
-fixdisplay() { sudo chvt 2; sleep 3; xrandr -d :0 --auto }
+display() { sudo chvt 2; sleep 3; xrandr -d :0 --auto }
 dict() { grep -i "$@" /usr/share/dict/*; }
 trash(){ mv "$@" $HOME/tap/trash/; }
 encrypt() { openssl enc -e -aes256 -in "$@"; }
