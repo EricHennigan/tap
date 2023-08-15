@@ -7,7 +7,7 @@ counting starts at 0
 '''
 
 from optparse import OptionParser
-import sys, itertools
+import sys
 
 ################
 # Options
@@ -84,5 +84,5 @@ if __name__=="__main__":
    if not args:
       files = [sys.stdin]
    else:
-      files = itertools.imap( open, args )
+      files = map( open, args )
    main()

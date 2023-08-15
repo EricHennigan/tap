@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 smount() {
-    server="cogitolingua.net"
-    #server="169.234.132.55"
+    server="pi@cogitolingua.net"
+    if [[ $(ifconfig | grep inet) =~ 192.168.86 ]]; then
+       server=pi@192.168.86.103
+    fi
 
     mounting="true"
     if [ "$1" == "-u" ]; then
@@ -11,6 +13,10 @@ smount() {
     fi
 
     case "$1" in
+        fish)
+            remote="~/projects"
+            local="$HOME/mnt/projects"
+            ;;
         array)
             remote="/mnt/array"
             #local="$HOME/tap/mnt/array"
