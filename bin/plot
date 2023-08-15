@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+'''
+Convert the first field (must be numeric) of each line into a bar plot
+'''
+
+from optparse import OptionParser
+import sys
+import itertools
+import math
+
+################
+# Options
+#===============
+usage = "usage: %prog [options]* [file]"
+description = __doc__
+parser = OptionParser(usage=usage, description=description)
+#parser.add_option("-s", "--size",
+#    help="Set the size (in characters) of the plot")
+parser.add_option("-z", "--zero", action="store_true", default=True,
+    help="Anchor the plot at zero")
+################
+
+################
+# MAIN
+#===============
+def main(lines):
+  print("hello")
+  # go through all the lines and grab the numbers
+  # get an upper/lower bound
+  # round off to nearest multiple of 10, 100, 1000 ?
+    # base this off log(max - min)
+  # replace each number with a bar of stars 
+
+  minv, maxv = math.inf, -math.inf
+  for i, line in enumerate(lines):
+    lines[i] = line.strip().split(' ', 1)
+    lines[i][0] = float(lines[i][0])
+    minv = min(minv, lines[i][0])
+    maxv = max(maxv, lines[i][0])
+
+  bot = 10**math.floor(math.log10(minv))
+  top = 10**math.ceil(math.log10(maxv))
+  inc = 10**math.floor(math.log10(maxv-minv))
+  num = (top-bot) // inc
+
+  for line in lines:
+    val = line[0]
+    pos = math.floor((val - bot) / (top - bot) * num)
+    bar = ''.join([' ' * (num - pos), '#' * pos])
+    print(bar, line[0], line[-1])
+
+################
+
+if __name__=="__main__":
+   (options, args) = parser.parse_args()
+
+   if not args:
+      input = sys.stdin
+   else:
+      input = open(args[0])
+   main([line for line in input])
