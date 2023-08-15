@@ -22,6 +22,8 @@ function gdc() { cd $(echo $(pwd) | sed "s,google3/(blaze-bin/)?,google3/,"); }
 function gdjt() { cd $(echo $(pwd) | sed "s,google3/(blaze-bin/|java/)?,google3/javatests/,"); }
 function gdj() { cd $(echo $(pwd) | sed "s,google3/(blaze-bin/|javatests/)?,google3/java/,"); }
 
+function hgp() { hg pdiff | ydiff -s }
+
 alias blt="blaze test --flaky_test_attempts=1"
 alias jadep="/google/data/ro/teams/jade/jadep"
 
