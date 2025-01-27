@@ -1,0 +1,62 @@
+diff --git a/keyboards/hotdox/keyboard.json b/keyboards/hotdox/keyboard.json
+index dee1decb94..e4fd7a30f3 100644
+--- a/keyboards/hotdox/keyboard.json
++++ b/keyboards/hotdox/keyboard.json
+@@ -3,8 +3,13 @@
+     "manufacturer": "Alpaca Keyboards",
+     "maintainer": "layne001365",
+     "usb": {
++      "__comment__": "original",
+       "vid": "0x414B",
+       "pid": "0x0001",
++
++      "__comment__": "from VIA",
++      "vid": "0xAA96",
++      "pid": "0xAAA9",
+       "device_version": "0.0.1"
+     },
+     "backlight": {
+diff --git a/keyboards/hotdox/rules.mk b/keyboards/hotdox/rules.mk
+index f5dfc77dd1..5637871693 100644
+--- a/keyboards/hotdox/rules.mk
++++ b/keyboards/hotdox/rules.mk
+@@ -4,3 +4,4 @@ CUSTOM_MATRIX           = yes # Custom matrix file for the ErgoDone
+ SRC =  matrix.c     \
+        left.c
+ I2C_DRIVER_REQUIRED = yes
++VIA_ENABLE = yes
+diff --git a/keyboards/hotdox76v2/config.h b/keyboards/hotdox76v2/config.h
+index f3b95890b2..83ba283681 100644
+--- a/keyboards/hotdox76v2/config.h
++++ b/keyboards/hotdox76v2/config.h
+@@ -21,3 +21,6 @@
+ //#define NO_ACTION_ONESHOT
+ 
+ #define SPLIT_TRANSACTION_IDS_KB KEYBOARD_CURRENT_ALPA_SYNC
++
++#define BACKLIGHT_DEFAULT_ON false
++#define BACKLIGHT_DEFAULT_LEVEL 0
+diff --git a/keyboards/hotdox76v2/keyboard.json b/keyboards/hotdox76v2/keyboard.json
+index 438099827e..bc546409f0 100644
+--- a/keyboards/hotdox76v2/keyboard.json
++++ b/keyboards/hotdox76v2/keyboard.json
+@@ -12,7 +12,8 @@
+         "mousekey": true,
+         "nkro": true,
+         "oled": true,
+-        "rgb_matrix": true
++        //"rgb_matrix": true
++        "rgb_matrix": false
+     },
+     "build": {
+         "lto": true
+@@ -26,7 +27,8 @@
+         },
+         "center_point": [112, 32],
+         "driver": "ws2812",
+-        "max_brightness": 150,
++        // "max_brightness": 150,
++        "max_brightness": 0,
+         "sleep": true,
+         "split_count": [43, 43]
+     },
