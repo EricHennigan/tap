@@ -58,3 +58,6 @@
 [submodule "etc/vim/bundle/nerdtree"]
 	path = etc/vim/bundle/nerdtree
 	url = https://github.com/preservim/nerdtree
+[submodule "etc/crypt"]
+	path = etc/crypt
+	url = git@github.com:EricHennigan/crypt.git
