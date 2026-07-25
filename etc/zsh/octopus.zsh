@@ -1,3 +1,5 @@
+alias blaze=bazel
+
 # Custom installs
 export PATH=$HOME/software:$PATH
 

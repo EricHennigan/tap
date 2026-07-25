@@ -4,7 +4,7 @@ alias web="konqueror"
 alias screen="byobu"
 alias mux="tmux"
 
-alias mydate="date +%g%m%d"
+alias mydate="date +%Y%m%d"
 alias mytime="date +%H%M%S"
 
 alias ls="ls --color=auto -h"

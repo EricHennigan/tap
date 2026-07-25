@@ -38,6 +38,7 @@ ZSH_THEME="bira"
 source $ZSH/oh-my-zsh.sh
 
 #### Personal Customizations
+EDITOR=vim
 
 # History config
 HISTFILE=~/.histfile
@@ -51,3 +52,6 @@ source $DOT/zsh/alias.zsh
 if [[ -f "$DOT/zsh/$(hostname).zsh" ]]; then
   source $DOT/zsh/$(hostname).zsh
 fi
+
+# Added by LM Studio CLI tool (lms)
+export PATH="$PATH:/home/erich/.lmstudio/bin"
