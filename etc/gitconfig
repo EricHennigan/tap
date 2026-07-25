@@ -5,3 +5,5 @@
 	vimdiff = difftool -y -t vimdiff -R
 [color]
 	ui = true
+[http]
+	postBuffer = 157286400
